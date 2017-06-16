@@ -15,7 +15,7 @@
                                     <div class="form__row">
                                         <div class="form__item">
                                             <label class="form__label">From</label>
-                                            <select class="form__field" name="from">
+                                            <select class="form__field" name="source">
                                                 <option class="">Guwahati (GHY)</option>
                                                 <option class="">Dimapur (DMV)</option>
                                                 <option class="">Bongaigaon (BNQ)</option>
@@ -24,7 +24,7 @@
 
                                         <div class="form__item">
                                             <label class="form__label">to</label>
-                                            <select class="form__field" name="to">
+                                            <select class="form__field" name="destination">
                                               <option class="">Guwahati (GHY)</option>
                                               <option class="">Dimapur (DMV)</option>
                                               <option class="">Bongaigaon (BNQ)</option>
@@ -35,9 +35,9 @@
                                     <div class="form__row">
                                         <div class="form__item">
                                             <label class="form__label">Departure day:</label>
-                                            <input type="text" name="dep-date" class="form__field form__field_calendar datepickerSecond">
+                                            <input type="text" name="date-of-journey" class="form__field form__field_calendar datepickerSecond">
                                         </div>
-                                        <div class="form__item">
+                                        <!--<div class="form__item">
                                             <label class="form__label">Class</label>
                                             <select class="form__field" name="class">
                                               <option class="">Sleeper</option>
@@ -46,8 +46,10 @@
                                               <option class="">AC III</option>
                                               <option class="">General</option>
                                             </select>
-                                        </div>
-                                        <button type="submit" name="search" class="btn btn_form">Search</button>
+                                        </div>-->
+                                    </div>
+                                    <div class="form_row">
+                                      <button type="submit" name="search" class="btn btn_form">Search</button>
                                     </div>
                                 </fieldset>
                             </form>

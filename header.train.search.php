@@ -3,6 +3,7 @@ session_start();
 
 require_once('config/db.php');
 require_once('classes/user.class.php');
+require './classes/class.book.php';
 
 $db = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if ($db->connect_errno) {
@@ -13,6 +14,9 @@ $user = new User($db);
 if(isset($_SESSION['username']) && $user->is_logged()) {
   $username = $_SESSION['username'];
 } else $username = 'guest';
+
+require_once('classes/train.class.php');
+$train = new Train($db);
 ?>
 
 

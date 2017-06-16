@@ -22,7 +22,7 @@ class User {
         $this->update_messages();
     		if (isset($_GET['logout'])) {
     			$this->logout();
-    		} elseif (isset($_COOKIE['username']) || (!empty($_SESSION['username']) && $_SESSION['is_logged']))  {
+    		} elseif (isset($_COOKIE['username']) || (!empty($_SESSION['username']) && !empty($_SESSION['is_logged'])))  {
     			$this->is_logged = true;
     			$this->username = $_SESSION['username'];
     			$this->email = $_SESSION['email'];
@@ -32,6 +32,8 @@ class User {
     				$this->register();
     		} elseif (isset($_POST['login'])) {
     			$this->login();
+    		} elseif (isset($_POST['admin'])) {
+    			$this->admin_login();
     		}
     		return $this;
     }
@@ -173,8 +175,19 @@ class User {
 
   	// Get all the existing users
   	public function get_users() {
-  		$query = "SELECT * FROM user";
-  		return ($this->db->query($query));
+  		$query = "SELECT * FROM user order by username asc";
+      $result = $this->db->query($query);
+      while($rows = $result->fetch_object()){
+        echo '<tr>';
+        echo '<td><input type="checkbox" id="select-all"/></td>';
+        echo '<td>'.$rows->username.'</td>';
+        echo '<td>'.$rows->first_name.'</td>';
+        echo '<td>'.$rows->last_name.'</td>';
+        echo '<td>'.$rows->dob.'</td>';
+        echo '<td>'.$rows->email.'</td>';
+        echo '<td>'.$rows->date.'</td>';
+        echo '</tr>';
+      }
   	}
 
   	// Print errors in screen
@@ -190,4 +203,35 @@ class User {
   			echo '<p style="color:green; font-size:16px; margin-top:30px; margin-left:50px">'.$msg.'</p>';
   		}
   	}
+
+    public function get_total_user(){
+      $query = "select count(username) as max_user from user";
+      $result = $this->db->query($query)->fetch_object();
+      return ($result->max_user);
+    }
+
+    public function admin_login(){
+      if(!empty($_POST['username']) && !empty($_POST['password'])){
+          $this->username = $this->db->real_escape_string($_POST['username']);
+          $this->password = md5($this->db->real_escape_string($_POST['password']));
+          if($row = $this->verify_password()){
+              session_start();
+              session_regenerate_id(true);
+              $_SESSION['id'] = session_id();
+              $_SESSION['admin'] = $this->username;
+              $_SESSION['email'] = $row->emai;
+              $_SESSION['is_logged'] = true;
+              // set a cookie that expires on one week
+             if(isset($_POST['remember']))
+                  setcookie('username',$this->username, time() + 604800);
+              // the for page should not resend on refresh, to prevent this
+             header('Location: ./dashboard.php');
+             exit();
+          } else $this->error[] = 'Wrong username or password';
+      } elseif (empty($_POST['username'])){
+          $this->error[] = 'Username field was empty';
+      } elseif(empty($_POST['password'])){
+          $this->error[] = 'Password field was empty';
+      }
+    }
 }

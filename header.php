@@ -12,7 +12,7 @@ if ($db->connect_errno) {
 $user = new User($db);
 if(isset($_SESSION['username']) && $user->is_logged()) {
   $username = $_SESSION['username'];
-} else $username = 'guest';
+} else $username = 'guest'; $_SESSION['username'] = 'Guest';
 ?>
 
 
@@ -45,8 +45,6 @@ if(isset($_SESSION['username']) && $user->is_logged()) {
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-
-
     <body>
             <header class="header">
                 <div class="container cf">

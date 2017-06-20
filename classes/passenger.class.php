@@ -17,6 +17,7 @@ class Passenger{
       echo '<td>'.$rows->age.'</td>';
       echo '<td>'.$rows->gender.'</td>';
       echo '<td>'.$rows->ticket.'</td>';
+      echo '<td>'.$rows->seat_no.'</td>';
       echo '</tr>';
     }
   }

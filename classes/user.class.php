@@ -84,9 +84,14 @@ class User {
                 // set a cookie that expires on one week
                if(isset($_POST['remember']))
                     setcookie('username',$this->username, time() + 604800);
-                // the for page should not resend on refresh, to prevent this
-               header('Location: index.php');
-               exit();
+               // the for page should not resend on refresh, to prevent this
+               if(!empty($_SESSION['passenger'])){
+                   header('Location: ./get-passenger-info.php');
+                   exit();
+               } else{
+                    header('Location: index.php');
+                    exit();
+               }
             } else $this->error[] = 'Wrong username or password';
         } elseif (empty($_POST['username'])){
             $this->error[] = 'Username field was empty';

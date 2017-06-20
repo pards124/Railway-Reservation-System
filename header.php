@@ -12,7 +12,7 @@ if ($db->connect_errno) {
 $user = new User($db);
 if(isset($_SESSION['username']) && $user->is_logged()) {
   $username = $_SESSION['username'];
-} else $username = 'guest'; $_SESSION['username'] = 'Guest';
+} else $username = 'guest'; $_SESSION['username'] = 'Guest'; $_SESSION['is_logged'] = false;
 ?>
 
 

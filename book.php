@@ -1,8 +1,9 @@
 <?php
 error_reporting(0);
 require('header.train.search.php');
-$train_number = $_GET['t_num'];
+$_SESSION['train_number'] = $_GET['t_num'];
 $train_name = $_GET['t_name'];
+$_SESSION['train-name'] = $train_name;
 $from = $_GET['from']." (".$_GET['from-code'].")";
 $to = $_GET['to']." (".$_GET['to-code'].")";
 $a_time = $_GET['a_time'];
@@ -14,7 +15,7 @@ $ticket = new Book($db, $from, $to, $a_time, $d_time);
         <h1 class="title_main text-center">Booking your ticket</h1>
           <div class="panel panel-default">
               <div class="panel-body">
-                <strong><?php echo $train_number." ".$train_name; ?></strong>: <?php echo $from ." to ". $to ?>
+                <strong><?php echo $_SESSION['train_number']." ".$train_name; ?></strong>: <?php echo $from ." to ". $to ?>
               </div>
           </div>
           <div class="panel panel-default col-lg-4 col-md-12">

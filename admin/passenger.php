@@ -29,6 +29,7 @@
                                 <th>Age</th>
                                 <th>Gender</th>
                                 <th>Ticket no</th>
+                                <th>Seat no</th>
                             </tr>
                         </thead>
                         <tbody>

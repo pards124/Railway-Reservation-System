@@ -64,6 +64,7 @@ class Train{
         $this->result = json_decode($jsone_result,true);
       //  session_start();
         $_SESSION['search-result'] = $this->result;
+        $_SESSION['doj'] = $this->date_of_journey;
         curl_close($curl);
         header('Location:./search.result.php');
         exit();
@@ -111,9 +112,9 @@ class Train{
       // Send the request & save response to $resp
       $jsone_result = curl_exec($curl);
       $result = json_decode($jsone_result,true);
-      print_r($result);
       // Close request to clear up some resources
       curl_close($curl);
+      return $result;
     }
 
     public function filter_station_code($station){
@@ -171,5 +172,6 @@ class Train{
     public function display_url(){
       return $this->url;
     }
+
 }
  ?>

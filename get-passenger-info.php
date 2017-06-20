@@ -32,7 +32,7 @@ $ticket = new Book($db);
                             <?php  }
                             ?>
                          </div>
-                         <div class="form-group col-lg-4">
+                         <div class="form-group col-lg-2">
                            <label for="adult">Gender</label>
                            <?php
                               for($i = 0; $i<$info['adult']; $i++ ){?>
@@ -43,6 +43,32 @@ $ticket = new Book($db);
                             <?php  }
                             ?>
                          </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult">Berth</label>
+                           <?php
+                              for($i = 0; $i<$info['adult']; $i++ ){?>
+                                <select name="berth-adult[]" style="margin-bottom:10px;">
+                                  <option value="LB">LB</option>
+                                  <option value="UB">UB</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult"> Class</label>
+                           <?php
+                              for($i = 0; $i<$info['adult']; $i++ ){?>
+                                <select name="class-adult[]" style="margin-bottom:10px;">
+                                  <option value="SL">SL</option>
+                                  <option value="AC I">AC I</option>
+                                  <option value="AC II">AC II</option>
+                                  <option value="AC III">AC III</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+
+
 
                       <?php }?>
                        <?php
@@ -63,7 +89,7 @@ $ticket = new Book($db);
                              <?php  }
                              ?>
                           </div>
-                          <div class="form-group col-lg-4">
+                          <div class="form-group col-lg-2">
                             <label for="adult">Gender</label>
                             <?php
                                for($i = 0; $i<$info['child']; $i++ ){?>
@@ -74,6 +100,31 @@ $ticket = new Book($db);
                              <?php  }
                              ?>
                           </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult">Berth</label>
+                           <?php
+                              for($i = 0; $i<$info['child']; $i++ ){?>
+                                <select name="berth-child[]" style="margin-bottom:10px;">
+                                  <option value="LB">LB</option>
+                                  <option value="UB">UB</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult"> Class</label>
+                           <?php
+                              for($i = 0; $i<$info['child']; $i++ ){?>
+                                <select name="class-child[]" style="margin-bottom:10px;">
+                                  <option value="SL">SL</option>
+                                  <option value="AC I">AC I</option>
+                                  <option value="AC II">AC II</option>
+                                  <option value="AC III">AC III</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+
                       <?php  }
                        ?>
                        <?php
@@ -105,6 +156,31 @@ $ticket = new Book($db);
                              <?php  }
                              ?>
                           </div>
+                          <div class="form-group col-lg-1">
+                           <label for="adult">Berth</label>
+                           <?php
+                              for($i = 0; $i<$info['snr-male']; $i++ ){?>
+                                <select name="berth-snr-male[]" style="margin-bottom:10px;">
+                                  <option value="LB">LB</option>
+                                  <option value="UB">UB</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult"> Class</label>
+                           <?php
+                              for($i = 0; $i<$info['snr-male']; $i++ ){?>
+                                <select name="class-snr-male[]" style="margin-bottom:10px;">
+                                  <option value="SL">SL</option>
+                                  <option value="AC I">AC I</option>
+                                  <option value="AC II">AC II</option>
+                                  <option value="AC III">AC III</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+
                       <?php  }
                        ?>
                        <?php
@@ -136,6 +212,31 @@ $ticket = new Book($db);
                              <?php  }
                              ?>
                           </div>
+                          <div class="form-group col-lg-1">
+                           <label for="adult">Berth</label>
+                           <?php
+                              for($i = 0; $i<$info['snr-female']; $i++ ){?>
+                                <select name="berth-snr-female[]" style="margin-bottom:10px;">
+                                  <option value="LB">LB</option>
+                                  <option value="UB">UB</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+                         <div class="form-group col-lg-1">
+                           <label for="adult"> Class</label>
+                           <?php
+                              for($i = 0; $i<$info['snr-female']; $i++ ){?>
+                                <select name="class-snr-female[]" style="margin-bottom:10px;">
+                                  <option value="SL">SL</option>
+                                  <option value="AC I">AC I</option>
+                                  <option value="AC II">AC II</option>
+                                  <option value="AC III">AC III</option>
+                                </select>
+                            <?php  }
+                            ?>
+                         </div>
+
                       <?php  }
                        ?>
                        <div class="form-group col-lg-12">

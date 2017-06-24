@@ -59,6 +59,7 @@ class Train{
             CURLOPT_USERAGENT => 'Codular Sample cURL Request'
         ));
         // Send the request & save response to $resp
+        echo $url;
         $this->url = $url;
         $jsone_result = curl_exec($curl);
         $this->result = json_decode($jsone_result,true);

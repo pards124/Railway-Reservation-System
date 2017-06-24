@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ankit
- * Date: 6/25/2015
- * Time: 11:17 PM
- */
+
 error_reporting(0);
 class OpenIrctc {
     private $pnr_id, $train_number;

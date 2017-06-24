@@ -12,7 +12,7 @@
     <!-- END: FOOTER LOGO -->
 
     <div class="footerContacts footerTop__item">
-      <div class="footerContacts__phone">+919876543210</div>
+      <div class="footerContacts__phone">+918404094513</div>
       <div class="footerContacts__email">support@bookyourtrain.com</div>
     </div>
     <!-- END: FOOTER CONTACTS -->
